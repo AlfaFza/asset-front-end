@@ -3,6 +3,7 @@ import { setUser } from "../redux/slices/userSlice";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import API from "../services/api";
 
 function Login() {
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ function Login() {
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post("http://127.0.0.1:8000/api/login/", {
+      const res = await API.post("login/", {
         username,
         password
       });

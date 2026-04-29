@@ -45,13 +45,13 @@ function Inventory() {
 
     try {
       if (editId) {
-        await axios.put(
-          `http://127.0.0.1:8000/api/inventory/${editId}/`,
+        await API.put(
+          `inventory/${editId}/`,
           formData
         );
       } else {
-        await axios.post(
-          "http://127.0.0.1:8000/api/inventory/",
+        await API.post(
+          "inventory/",
           formData
         );
       }
@@ -67,7 +67,7 @@ function Inventory() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://127.0.0.1:8000/api/inventory/${id}/`);
+      await API.delete(`inventory/${id}/`);
       fetchInventory();
     } catch (err) {
       console.log("DELETE ERROR ❌", err.response?.data);
